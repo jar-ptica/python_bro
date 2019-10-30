@@ -15,7 +15,7 @@ PLAN
     enumerate()
     eval() - ?
     float()
-    format()
+    format() - ?
     getattr() - ?
     globals() - ?
     hasattr() - ?
@@ -27,7 +27,7 @@ PLAN
     class() - ?
     len()
     locals() - ?
-    map()
+    map() - ?
     max()
     min()
     open() - ?
@@ -37,8 +37,8 @@ PLAN
     sorted()
     str()
     sum()
-    tuple()
-    vars()
+    tuple() - ?
+    vars() - ?
     zip - ?
 
 4. logic operators
