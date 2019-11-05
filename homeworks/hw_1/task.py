@@ -8,7 +8,7 @@ def have_objects_same_value(first, second):
     In another case should return False
     """
 
-    pass
+    return first == second
 
 
 def is_objects_same_type(first, second):
@@ -93,7 +93,7 @@ def some_loop_exercise():
 
     pass
 
-def remove_from_list_all_negative_numbers(data]):
+def remove_from_list_all_negative_numbers(data):
     """
     Use loops to solve this task.
     You could use data.remove(negative_number) to solve this issue.
