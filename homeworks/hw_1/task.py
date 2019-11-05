@@ -2,10 +2,7 @@
 This is a list of functions that should be completed.
 """
 
-from typing import Any
-from typing import List
-
-def have_objects_same_value(first: Any, second: Any) -> bool:
+def have_objects_same_value(first, second):
     """
     If @first and @second has same value should return True
     In another case should return False
@@ -13,7 +10,8 @@ def have_objects_same_value(first: Any, second: Any) -> bool:
 
     pass
 
-def is_objects_same_type(first: Any, second: Any) -> bool:
+
+def is_objects_same_type(first, second):
     """
     If @first and @second has same type should return True
     In another case should return False
@@ -22,7 +20,7 @@ def is_objects_same_type(first: Any, second: Any) -> bool:
     pass
     
 
-def is_objects_the_same(first: Any, second: Any) -> bool:
+def is_objects_the_same(first, second):
     """
     If @first and @second are same objects should return True
     In another case should return False
@@ -30,7 +28,7 @@ def is_objects_the_same(first: Any, second: Any) -> bool:
 
     pass
 
-def multiple_ints(first_value: int, second_value: int) -> int:
+def multiple_ints(first_value, second_value):
     """
     Should calculate product of all args.
     if first_value or second_value is not int should raise ValueError
@@ -45,7 +43,8 @@ def multiple_ints(first_value: int, second_value: int) -> int:
 
     pass
 
-def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
+
+def multiple_ints_with_conversion(first_value, second_value):
     """
     If possible to convert arguments to int value - convert and multiply them.
     If it is impossible raise ValueError
@@ -71,7 +70,7 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
 
     pass
 
-def is_word_in_text(word: str, text: str) -> bool:
+def is_word_in_text(word, text):
     """
     If text contain word return True
     In another case return False.
@@ -87,14 +86,14 @@ def is_word_in_text(word: str, text: str) -> bool:
 
     pass
 
-def some_loop_exercise() -> list:
+def some_loop_exercise():
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
 
     pass
 
-def remove_from_list_all_negative_numbers(data: List[int]) -> list:
+def remove_from_list_all_negative_numbers(data]):
     """
     Use loops to solve this task.
     You could use data.remove(negative_number) to solve this issue.
@@ -106,7 +105,7 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
 
     pass
 
-def alphabet() -> dict:
+def alphabet():
     """
     Create dict which keys is alphabetic characters. And values their number in alphabet
     Notes You could see an implementaion of this one in test, but create another one
@@ -118,7 +117,7 @@ def alphabet() -> dict:
     pass
 
 
-def simple_sort(data: List[int]) -> List[list]:
+def simple_sort(data):
     """
     Sort list of ints without using built-in methods.
     Examples:
