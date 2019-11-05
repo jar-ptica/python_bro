@@ -8,7 +8,7 @@ def have_objects_same_value(first, second):
     In another case should return False
     """
 
-    return first == second
+    pass
 
 
 def is_objects_same_type(first, second):
