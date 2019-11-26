@@ -26,7 +26,8 @@ def is_objects_the_same(first, second):
     In another case should return False
     """
 
-    pass
+    return first is second
+
 
 def multiple_ints(first_value, second_value):
     """
@@ -41,7 +42,11 @@ def multiple_ints(first_value, second_value):
         Product of elements
     """
 
-    pass
+    try:
+        # first_value, second_value = int
+        return int(first_value) * int(second_value)
+    except:
+        raise ValueError
 
 
 def multiple_ints_with_conversion(first_value, second_value):
@@ -70,6 +75,7 @@ def multiple_ints_with_conversion(first_value, second_value):
 
     pass
 
+
 def is_word_in_text(word, text):
     """
     If text contain word return True
@@ -84,7 +90,13 @@ def is_word_in_text(word, text):
         >>> False
     """
 
-    pass
+    if word in text:
+        return True
+    else:
+        return False
+    
+    # return word in text
+
 
 def some_loop_exercise():
     """
@@ -92,6 +104,8 @@ def some_loop_exercise():
     """
 
     pass
+
+
 
 def remove_from_list_all_negative_numbers(data):
     """
@@ -102,8 +116,15 @@ def remove_from_list_all_negative_numbers(data):
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
+    index = 0
+    while index < len(data):
+        if data[index] < 0:
+            data.remove(data[index])
+        else:
+            index += 1
+    return data
 
-    pass
+[0, 16, 17, 1, 8, -2, -3, 5]
 
 def alphabet():
     """
@@ -114,7 +135,7 @@ def alphabet():
         >>> {1: "a", 2: "b" ...}
     """
 
-    pass
+    return {1: "a", 2: "b"}
 
 
 def simple_sort(data):
@@ -127,3 +148,5 @@ def simple_sort(data):
     """
 
     pass
+
+print(remove_from_list_all_negative_numbers([0, 15, 16, 17, 1, 8, -2, -3, 5]))

@@ -4,6 +4,7 @@ from task import *
 
 class TestObjectsComparison(unittest.TestCase):
 
+
     def test_is_two_objects_same_value(self):
         self.assertTrue(have_objects_same_value(10, 10))
 
@@ -17,9 +18,11 @@ class TestObjectsComparison(unittest.TestCase):
         a = 10
         b = a
         self.assertTrue(is_objects_the_same(a, b))
+        self.assertFalse(is_objects_the_same(a, '0'))
 
     def test_multiple_ints(self):
         self.assertTrue(multiple_ints(5, 5) == 25)
+        self.assertFalse(multiple_ints(False, 5) == 25)
 
     def test_multiple_ints_with_conversion(self):
         self.assertTrue(multiple_ints_with_conversion(5, 5.0) == 25)
