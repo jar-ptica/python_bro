@@ -3,15 +3,19 @@ This is a list of functions that should be completed.
 """
 
 def have_objects_same_value(first, second):
+
+    return (first == second)
     """
     If @first and @second has same value should return True
     In another case should return False
     """
 
+    """
     pass
-
+    """
 
 def is_objects_same_type(first, second):
+    return (type(first) == type(second))
     """
     If @first and @second has same type should return True
     In another case should return False
@@ -123,9 +127,9 @@ def remove_from_list_all_negative_numbers(data):
         else:
             index += 1
     return data
-
-[0, 16, 17, 1, 8, -2, -3, 5]
-
+"""
+   [0, 16, 17, 1, 8, -2, -3, 5]
+"""
 def alphabet():
     """
     Create dict which keys is alphabetic characters. And values their number in alphabet
@@ -148,5 +152,6 @@ def simple_sort(data):
     """
 
     pass
-
+"""
 print(remove_from_list_all_negative_numbers([0, 15, 16, 17, 1, 8, -2, -3, 5]))
+"""
