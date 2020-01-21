@@ -225,6 +225,7 @@ def get_negative_numbers_count(list_n):
     """
     return
 
+#20 - List Operation Error checking
 def remove_elements_from_list(list_a, list_b):
     """
     function should return list which contains {'list_a'} elements without {'list_b'} elements,
