@@ -22,7 +22,6 @@ def sum_of_two_integer_numbers_with_conversion(number_a, number_b):
     """
     function should return sum of two INT numbers,
     if any variable is NOT int type - should round it to int
-    if conversion NOT possible - should raise TypeError
     number_a - (any numeric)
     number_b - (any numeric)
     return: int
@@ -32,17 +31,16 @@ def sum_of_two_integer_numbers_with_conversion(number_a, number_b):
 def sum_of_two_absolute_numbers(number_a, number_b):
     """
     function should return sum of two absolute numerics,
-    if any variable not numeric type - should raise TypeError
     number_a - (any numeric)
     number_b - (any numeric)
     return: any numeric
     """
 
 #5 - String Operation Error Checking
-def sum_of_two_strings_with_conversion(string_a, string_b):
+def string_from_two_strings_with_conversion(string_a, string_b):
     """
     function should return sum of two strings as one complete string
-    if any variable not strin type - should convert to string
+    if any variable not string type - should convert to string
     if conversion NOT possible - should raise TypeError
     string_a - (string)
     string_b - (string)
