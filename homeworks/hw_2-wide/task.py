@@ -1,22 +1,28 @@
 #1 - Numeric Operation
 def sum_of_two_numbers(number_a, number_b):
+    result = number_a+number_b
     """
     function should return sum of two numbers, int or float
     number_a - (int or float)
     number_b - (int or float)
     return: int or float
     """
-    return
+    return result
+
 
 #2 - Numeric Operation Error checking
 def absolute_numeric_value(value):
+    if isinstance(value, (int, float)):
+        return(abs(value))
+    else:
+        raise ValueError
     """
     function should return absolute numeric value,
     if not possible - should raise ValueError
     value - (any)
     return: any numeric
     """
-    return
+
 
 #3 - Numeric Operation Error checking
 def sum_of_two_integer_numbers_with_conversion(number_a, number_b):
@@ -27,20 +33,40 @@ def sum_of_two_integer_numbers_with_conversion(number_a, number_b):
     number_b - (any numeric)
     return: int
     """
-    return
+    list = [number_a, number_b]
+    for i in range(len(list)):
+        value = list[i]
+        if type(value) == float:
+            value = round(value)
+        else :
+            value = value
+        list[i] = value
+    result = sum(list)
+    return result
+
 
 #4 - Numeric Operation Error checking
 def sum_of_two_absolute_numbers(number_a, number_b):
+    result = abs(number_a) + abs(number_b)
     """
     function should return sum of two absolute numerics,
     number_a - (any numeric)
     number_b - (any numeric)
     return: any numeric
     """
-    return
+    return result
 
 #5 - String Operation Error Checking
-def string_from_two_strings_with_conversion(string_a, string_b):
+def sum_of_two_strings_with_conversion(string_a, string_b):
+    list_arg = [string_a, string_b]
+    for i in range(0, 2):
+        value = list_arg[i]
+        if not type(value) == str:
+            value = str(value)
+        else:
+            value = value
+        list_arg[i] = value
+    result = list_arg[0] + list_arg[1]
     """
     function should return sum of two strings as one complete string
     if any variable not string type - should convert to string
@@ -49,7 +75,9 @@ def string_from_two_strings_with_conversion(string_a, string_b):
     string_b - (string)
     return: string
     """
-    return
+    return result
+
+
 
 #6 - String Operation Error Checking
 def is_word_in_text(text, word):
