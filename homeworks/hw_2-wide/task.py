@@ -1,27 +1,27 @@
 #1 - Numeric Operation
 def sum_of_two_numbers(number_a, number_b):
-    result = number_a+number_b
     """
     function should return sum of two numbers, int or float
     number_a - (int or float)
     number_b - (int or float)
     return: int or float
     """
-    return result
+    return number_a + number_b
 
 
 #2 - Numeric Operation Error checking
 def absolute_numeric_value(value):
-    if isinstance(value, (int, float)):
-        return(abs(value))
-    else:
-        raise ValueError
     """
     function should return absolute numeric value,
     if not possible - should raise ValueError
     value - (any)
     return: any numeric
     """
+    if isinstance(value, (int, float)):
+        return abs(value)
+    else:
+        raise ValueError
+
 
 
 #3 - Numeric Operation Error checking
@@ -38,26 +38,32 @@ def sum_of_two_integer_numbers_with_conversion(number_a, number_b):
         value = list[i]
         if type(value) == float:
             value = round(value)
-        else :
+        else:
             value = value
         list[i] = value
-    result = sum(list)
-    return result
+    return sum(list)
 
 
 #4 - Numeric Operation Error checking
 def sum_of_two_absolute_numbers(number_a, number_b):
-    result = abs(number_a) + abs(number_b)
     """
     function should return sum of two absolute numerics,
     number_a - (any numeric)
     number_b - (any numeric)
     return: any numeric
     """
-    return result
+    return abs(number_a) + abs(number_b)
 
 #5 - String Operation Error Checking
-def sum_of_two_strings_with_conversion(string_a, string_b):
+def string_from_two_strings_with_conversion(string_a, string_b):
+    """
+    function should return sum of two strings as one complete string
+    if any variable not string type - should convert to string
+    if conversion NOT possible - should raise TypeError
+    string_a - (string)
+    string_b - (string)
+    return: string
+    """
     list_arg = [string_a, string_b]
     for i in range(0, 2):
         value = list_arg[i]
@@ -67,14 +73,6 @@ def sum_of_two_strings_with_conversion(string_a, string_b):
             value = value
         list_arg[i] = value
     result = list_arg[0] + list_arg[1]
-    """
-    function should return sum of two strings as one complete string
-    if any variable not string type - should convert to string
-    if conversion NOT possible - should raise TypeError
-    string_a - (string)
-    string_b - (string)
-    return: string
-    """
     return result
 
 
@@ -83,13 +81,17 @@ def sum_of_two_strings_with_conversion(string_a, string_b):
 def is_word_in_text(text, word):
     """
     function should return True if word is in given text, False if not
-    if any variable not strin type - should convert to string
+    if any variable not string type - should convert to string
     if conversion NOT possible - should raise TypeError
     text - (string)
     word - (string)
     return: bool
     """
-    return
+    if not isinstance(text, str):
+        text = str(text)
+    if not isinstance(word, str):
+        word = str(word)
+    return word in text
 
 #7 - String Operation Error Checking
 def string_part_replacement(text, search_value, replace_value):
@@ -102,7 +104,17 @@ def string_part_replacement(text, search_value, replace_value):
     string_b - (any)
     return: string
     """
-    return
+    try:
+        if not isinstance(text, str):
+            text = str(text)
+        if not isinstance(search_value, str):
+            search_value = str(search_value)
+        if not isinstance(replace_value, str):
+            replace_value = str(replace_value)
+    except ValueError:
+        print('invalid data')
+
+    return text.replace(search_value, replace_value)
 
 #8 - String Operation Error Checking
 def string_to_words(text):
@@ -113,7 +125,14 @@ def string_to_words(text):
     text - (any)
     return: list [string, string] or None
     """
-    return
+    if not isinstance(text, str):
+        raise TypeError
+    else:
+        if " " in text:
+            return text.split(' ')
+        else:
+            return None
+
 
 #7 - String Operation Error Checking - Cycles
 def every_word_capitalize(text):
@@ -123,7 +142,10 @@ def every_word_capitalize(text):
     text - (any)
     return: string
     """
-    return
+    if not isinstance(text, str):
+        raise TypeError
+    else:
+        return text.title()
 
 #8 - String Operation Error Checking
 def string_upper_case(text):
@@ -133,7 +155,10 @@ def string_upper_case(text):
     text - (any)
     return: string
     """
-    return
+    if not isinstance(text, str):
+        raise TypeError
+    else:
+        return text.upper()
 
 #9 - String Operation Error Checking - Cycles, temp_variable
 def word_in_upper_case(text, word_number):
@@ -143,7 +168,13 @@ def word_in_upper_case(text, word_number):
     text - (any)
     return: string
     """
-    return
+    if not isinstance(text, str):
+        raise TypeError
+    else:
+        words_in_text = text.split(" ")
+        new = words_in_text[word_number].upper()
+        result = text.replace(words_in_text[word_number], new)
+        return result
 
 #10 - String Operation Error Checking
 def join_words(word_a, word_b):
@@ -154,7 +185,10 @@ def join_words(word_a, word_b):
     word_b - (any)
     return: string
     """
-    return
+    if any([not isinstance(word_a, str), not isinstance(word_b, str)]):
+        raise TypeError
+    else:
+        return word_a + word_b
 
 #11 - String Operation Error Checking
 def string_is_starts_with(text, part):
