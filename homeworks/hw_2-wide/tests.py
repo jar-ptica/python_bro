@@ -109,8 +109,65 @@ class TestStringTasks(unittest.TestCase):
     def test_string_is_ends_with_part_upper_case(self):
         func = string_is_ends_with_part_upper_case
         self.assertEqual(func('citroen is shitty CAR', 'car'), True)
-        self.assertFalse(func('citroen is shitty car', 'delorean'))
+        self.assertFalse(func('citroen is shitty car', 'kae'), False)
 
+    def test_string_is_ends_with_three_numbers(self):
+        func = string_is_ends_with_three_numbers
+        self.assertEqual(func('citroen is shitty CAR 111'), True)
+        self.assertFalse(func('citroen is shitty car'), False)
+
+class testListMethods(unittest.TestCase):
+
+    def test_join_of_two_lists(self):
+        func = join_of_two_lists
+        self.assertEqual(func([1, 2, 3], [4, 5, 6]), [1, 2, 3, 4, 5, 6])
+        self.assertTrue(func([1, 'd', 3.1], [4, 5, 6]), [1, 'd', 3.1, 4, 5, 6])
+
+    def test_sum_of_list_elements(self):
+        func = sum_of_list_elements
+        self.assertEqual(func([0, 0, 5, 5.5]), 10.5)
+        self.assertEqual(func([0, -5, 5, 5.5]), 5.5)
+        self.assertNotEqual(func([0, 0.1, 5, 5.2]), 10.2)
+        self.assertRaises(TypeError, func, [0, 1, 0, 'df'])
+        self.assertRaises(TypeError, func, [0, 1, 0, []])
+        self.assertRaises(TypeError, func, [0, 1, 0, {}])
+
+    def test_max_from_numeric_list(self):
+        func = max_from_numeric_list
+        self.assertEqual(func([0, 0, 5, 5.5]), 5.5)
+        self.assertEqual(func([0, -15, 5, 11]), 11)
+        self.assertNotEqual(func([0, 0.1, 5, 5.2]), 10.2)
+        self.assertRaises(TypeError, func, [0, 1, 0, 'df'])
+        self.assertRaises(TypeError, func, [0, 1, 0, []])
+        self.assertRaises(TypeError, func, [0, 1, 0, {}])
+
+    def test_min_from_numeric_list(self):
+        func = min_from_numeric_list
+        self.assertEqual(func([0, 0, 5, 5.5]), 0)
+        self.assertEqual(func([0, -15, 5, 11]), -15)
+        self.assertNotEqual(func([0, 0.1, 5, 5.2]), 10.2)
+        self.assertRaises(TypeError, func, [0, 1, 0, 'df'])
+        self.assertRaises(TypeError, func, [0, 1, 0, []])
+        self.assertRaises(TypeError, func, [0, 1, 0, {}])
+
+    def test_get_negative_numbers_count(self):
+        func = get_negative_numbers_count
+        self.assertEqual(func([0, 0, 5, 5.5]), 0)
+        self.assertEqual(func([0, -15, 5, 11]), 1)
+        self.assertEqual(func([0, -15, -5, 11]), 2)
+        self.assertNotEqual(func([0, 0.1, 5, 5.2]), 1)
+        self.assertRaises(TypeError, func, [0, 1, 0, 'df'])
+        self.assertRaises(TypeError, func, [0, 1, 0, []])
+        self.assertRaises(TypeError, func, [0, 1, 0, {}])
+
+    def test_remove_elements_from_list(self):
+        func = remove_elements_from_list
+        self.assertEqual(func([0, 0, 5, 5.5], [0]), [5, 5.5])
+        self.assertEqual(func([0, -15, 5, 11], [-15, 0]), [5, 11])
+        self.assertEqual(func([0, -15, -5, 11], [0, 11]), [-15, -5])
+        self.assertRaises(TypeError, func, [0, 1, 0, 'df'], 1)
+        self.assertRaises(TypeError, func, [0, 1, 0], 3 )
+        self.assertRaises(TypeError, func, [0, 1, 0, {}])
 
 if __name__ == "__main__":
     if sys.platform == 'win32':
