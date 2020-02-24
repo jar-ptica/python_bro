@@ -32,7 +32,6 @@ def sum_of_two_integer_numbers_with_conversion(number_a, number_b):
     number_a - (any numeric)
     number_b - (any numeric)
     return: int
-    """
     list = [number_a, number_b]
     for i in range(len(list)):
         value = list[i]
@@ -42,6 +41,10 @@ def sum_of_two_integer_numbers_with_conversion(number_a, number_b):
             value = value
         list[i] = value
     return sum(list)
+    """
+    if not all([isinstance(number_a, int), isinstance(number_b, int)]):
+        number_a, number_b = round(number_a), round(number_b)
+    return number_a + number_b
 
 
 #4 - Numeric Operation Error checking
@@ -63,7 +66,7 @@ def string_from_two_strings_with_conversion(string_a, string_b):
     string_a - (string)
     string_b - (string)
     return: string
-    """
+
     list_arg = [string_a, string_b]
     for i in range(0, 2):
         value = list_arg[i]
@@ -74,6 +77,13 @@ def string_from_two_strings_with_conversion(string_a, string_b):
         list_arg[i] = value
     result = list_arg[0] + list_arg[1]
     return result
+    """
+    if not all([isinstance(string_a, str), isinstance(string_b, str)]):
+        try:
+            string_a, string_b = str(string_a), str(string_b)
+        except TypeError:
+            raise TypeError
+    return string_a + string_b
 
 
 
@@ -112,7 +122,7 @@ def string_part_replacement(text, search_value, replace_value):
         if not isinstance(replace_value, str):
             replace_value = str(replace_value)
     except ValueError:
-        print('invalid data')
+        raise ValueError
 
     return text.replace(search_value, replace_value)
 
@@ -173,8 +183,7 @@ def word_in_upper_case(text, word_number):
     else:
         words_in_text = text.split(" ")
         new = words_in_text[word_number].upper()
-        result = text.replace(words_in_text[word_number], new)
-        return result
+        return text.replace(words_in_text[word_number], new)
 
 #10 - String Operation Error Checking
 def join_words(word_a, word_b):
@@ -200,7 +209,13 @@ def string_is_starts_with(text, part):
     part - (any)
     return: bool
     """
-    return
+    if not all([isinstance(text, str), isinstance(part, str)]):
+        text, part = str(text), str(part)
+    k = len(part)
+    if text[0:k] == part:
+        return True
+    else:
+        return False
 
 #12 - String Operation Error Checking
 def string_is_ends_with_part(text, part):
@@ -211,7 +226,9 @@ def string_is_ends_with_part(text, part):
     text - (any)
     return: bool
     """
-    return
+    if not all([isinstance(text, str), isinstance(part, str)]):
+        text, part = str(text), str(part)
+    return text.endswith(part)
 
 #13 - String Operation Error Checking
 def string_is_ends_with_part_upper_case(text, part):
@@ -223,7 +240,10 @@ def string_is_ends_with_part_upper_case(text, part):
     part - (any)
     return: bool
     """
-    return
+    if not all([isinstance(text, str), isinstance(part, str)]):
+        text, part = str(text), str(part)
+    part_new = part.upper()
+    return text.endswith(part_new)
 
 #14 - String Operation Error Checking
 def string_is_ends_with_three_numbers(text):
@@ -234,7 +254,10 @@ def string_is_ends_with_three_numbers(text):
     text - (any)
     return: bool
     """
-    return
+    if not isinstance(text, str):
+        text = str(text)
+    text_digits = text[-3:]
+    return text_digits.isdigit()
 
 
 #15 - List Operation Error Checking
@@ -245,10 +268,10 @@ def join_of_two_lists(list_a, list_b):
     list_b - (list)
     return: list
     """
-    return
+    return list_a + list_b
 
 #16 - List Operation Error checking
-def sum_of_list_elements(list_num,):
+def sum_of_list_elements(list_num):
     """
     function should return sum of list elements
     if any variable not numeric type - should raise TypeError
@@ -256,7 +279,9 @@ def sum_of_list_elements(list_num,):
     list_b - (list)
     return: list
     """
-    return
+    if not all(isinstance(element, (int, float)) for element in list_num):
+        raise TypeError
+    return sum(list_num)
 
 #17 - List Operation Error checking
 def max_from_numeric_list(list_n):
@@ -266,7 +291,9 @@ def max_from_numeric_list(list_n):
     list_n - (list) - [0, -1, 5,..]
     return: any numeric
     """
-    return
+    if not all(isinstance(element, (int, float)) for element in list_n):
+        raise TypeError
+    return max(list_n)
 
 #18 - Numeric Operation Error checking
 def min_from_numeric_list(list_n):
@@ -276,7 +303,9 @@ def min_from_numeric_list(list_n):
     list_n - (list) - [0, -1, 5,..]
     return: any numeric
     """
-    return
+    if not all(isinstance(element, (int, float)) for element in list_n):
+        raise TypeError
+    return min(list_n)
 
 #19 - List Operation Error checking
 def get_negative_numbers_count(list_n):
@@ -286,7 +315,13 @@ def get_negative_numbers_count(list_n):
     list_n - (list) - [0, -1, 5,..]
     return: int
     """
-    return
+    x = 0
+    for element in list_n:
+        if not isinstance(element, (int, float)):
+            raise TypeError
+        if element < 0:
+            x += 1
+    return x
 
 #20 - List Operation Error checking
 def remove_elements_from_list(list_a, list_b):
@@ -297,4 +332,9 @@ def remove_elements_from_list(list_a, list_b):
     list_b - (list)
     return: list
     """
-    return
+    if not all([isinstance(list_a, list), isinstance(list_b, list)]):
+        list_a =[]
+    for x in list_b:
+        while list_a.count(x):
+            list_a.remove(x)
+    return list_a
